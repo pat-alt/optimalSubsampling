@@ -16,16 +16,10 @@ All details can be found in this [Jupyter notebook](notebook.ipynb) - good if yo
 
 The case for subsampling involves $n >> p$, so very large values of $n$. In such cases we may be interested in estimating model coefficients $\hat\beta_m$ instead of $\hat\beta_n$ where $p\le m<<n$ with $m$ freely chosen by us. In practice we may want to do this to avoid high computational costs associated with large $n$ as discussed above. The basic algorithm for estimating $\hat\beta_m$ is simple:
 
-1. Subsample with replacement from the data with some sampling probability $\{\pi_i\}^n_{i=1}$.
+1. Subsample with replacement from the data with some sampling probability $\{\pi_i\}$.
 2. Estimate least-squares estimator $\hat\beta_m$ using the subsample. 
 
-Here we look at a few of the different subsampling methods investigated and proposed in Zhu et al, 2015, which differ primarily in their choice of subsampling probabilities $\{\pi_i\}^n_{i=1}$:
-
-1. Uniform subsampling (UNIF): $\{\pi_i\}^n_{i=1}=1/n$.
-2. Basic leveraging (BLEV): $\{\pi_i\}^n_{i=1}=h_{ii}/ \text{tr}(\mathbf{H})=h_{ii}/p$ where $\mathbf{H}$ is the *hat matrix*.
-3. Optimal (OPT) and predictor-length sampling (PL): involving $||\mathbf{X}_i||/ \sum_{j=1}^{n}||\mathbf{X}_j||$ where $||\mathbf{X}||$ denotes the $L_2$ norm of $\mathbf{X}$.
-
-The baseline results from Zhu et al, 2015, are replicated here and consistent with the authors' findings: systematic subsampling can greatly improve model performance.
+Here we look at a few of the different subsampling methods investigated and proposed in Zhu et al, 2015, which differ primarily in their choice of subsampling probabilities $\{\pi_i\}$. The baseline results from Zhu et al, 2015, are replicated here and consistent with the authors' findings: systematic subsampling can greatly improve model performance.
 
 ![](www/mse.png)
 
